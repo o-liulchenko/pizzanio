@@ -1,0 +1,32 @@
+{
+    "sales": [
+        {
+            "name": "Pizza Amet (570 g.)",
+            "image": "https://drive.google.com/file/d/1JV0SI3CN376XkU6HWBo4uOp1zIxc0WQL/view?usp=sharing",
+            "discount": "-10%",
+            "price": "139 uah.",
+            "description": "Lorem, ipsum dolor sit quae nihil, officiis fugiat dolorem? Sed quam architecto eos laborum."
+        },
+        {
+            "name": "Pizza Concetur (570 g.)",
+            "image": "https://drive.google.com/file/d/1-q16o72W_snsrBUAM6A9PzMlesLUngus/view?usp=sharing",
+            "discount": "-10%",
+            "price": "200 uah.",
+            "description": "Lorem, ipsum dolor sit quae nihil, officiis fugiat dolorem? Sed quam architecto eos laborum."
+        },
+        {
+            "name": "Pizza Dolor (430 g.)",
+            "image": "https://drive.google.com/file/d/1XS8DSXaXfhsiZ5eK2blb0I5Uk90-R-V4/view?usp=sharing",
+            "discount": "-15%",
+            "price": "150 uah.",
+            "description": "Lorem, ipsum dolor sit quae nihil, officiis fugiat dolorem? Sed quam architecto eos laborum."
+        },
+        {
+            "name": "Pizza Ipsum Lorem (570 g.)",
+            "image": "https://drive.google.com/file/d/1TbzGfmYrVqZJXEa1qOwIj4wy75FP99Z8/view?usp=sharing",
+            "discount": "-15%",
+            "price": "170 uah.",
+            "description": "Lorem, ipsum dolor sit quae nihil, officiis fugiat dolorem? Sed quam architecto eos laborum."
+        }
+    ]
+}
