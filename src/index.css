@@ -1,3 +1,8 @@
+@font-face {
+  font-family: "Apple Chancery";
+  src: url("./assets/font/AppleChancery.ttf");
+}
+
 * {
   box-sizing: border-box;
 }
@@ -35,11 +40,6 @@ img {
   display: block;
 }
 
-@font-face {
-  font-family: "Apple Chancery";
-  src: url("./assets//font/Apple\ Chancery.ttf");
-}
-
 :root {
   --main-color: #ec4d2f;
   --submain-color: #b83922;
@@ -53,14 +53,14 @@ img {
   --black-color: #111111;
   --main-font: "Montserrat", sans-serif;
   --logo-font: "Anton", sans-serif;
-  --cursive-font: "Apple Chancery", cursive;
+  --cursive-font: "Apple Chancery", sans-serif;
 }
 
 body {
   font-family: var(--main-font);
   color: var(--white-color);
   background-color: var(--background-color);
-  font-size: 16px;
+  height: max-content;
 }
 .container {
   width: clamp(375px, 100%, 1170px);
@@ -74,9 +74,9 @@ body {
   color: var(--white-color);
   font-size: 18px;
   line-height: 130%;
-  transition: all .3s linear;
+  transition: all 0.3s linear;
 }
-.button:is(:hover, :active){
+.button:is(:hover, :active) {
   border: 2px solid var(--main-color);
 }
 .button:hover {
