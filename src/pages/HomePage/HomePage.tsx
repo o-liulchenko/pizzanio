@@ -16,7 +16,7 @@ export const HomePage: FC = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:3030/pizzas/discount")
+      .get("http://localhost:3030/api/pizzas")
       .then((response) => {
         setSales(response.data);
         setIsloading(false);
