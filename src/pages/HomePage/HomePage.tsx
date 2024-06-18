@@ -1,8 +1,10 @@
 import { FC, useEffect, useState } from "react";
-import axios from "axios";
 import styles from "./HomePage.module.css";
+import { getAllPizzas } from "../../api/pizzaAPI";
+import { PizzaDiscountCard } from "../../components";
 
 interface IData {
+  _id: string;
   description: string;
   discount: number;
   image: string;
@@ -15,12 +17,10 @@ export const HomePage: FC = () => {
   let [isloading, setIsloading] = useState(true);
 
   useEffect(() => {
-    axios
-      .get("http://localhost:3030/api/pizzas")
-      .then((response) => {
-        setSales(response.data);
-        setIsloading(false);
-      });
+    getAllPizzas().then((data) => {
+      setSales(data);
+      setIsloading(false);
+    });
   }, []);
 
   return (
@@ -31,15 +31,13 @@ export const HomePage: FC = () => {
           <h2 className={styles.descriptionSubitle}>Special</h2>
         </article>
         <article>
-          {
-            isloading
-            ? <span>loading</span>
-            : sales.map(e => <>
-              <p>{e.name}</p>
-              <p>{e.price} uah.</p>
-              <img src={e.image} alt="" />
-            </>)
-          }
+          {isloading ? (
+            <span>loading</span>
+          ) : (
+            sales.map((e) => (
+              <PizzaDiscountCard props={e} />
+            ))
+          )}
         </article>
       </section>
     </>
