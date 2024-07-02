@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 @font-face {
   font-family: "Apple Chancery";
   src: url("./assets/font/AppleChancery.ttf");
@@ -22,10 +26,12 @@ button {
 li {
   list-style: none;
 }
+button{
+  background: transparent;
+}
 button,
 button:hover,
 button:active {
-  background: transparent;
   border: none;
   outline: none;
   cursor: pointer;
@@ -62,10 +68,10 @@ body {
   background-color: var(--background-color);
   height: max-content;
 }
-.container {
+/* .container {
   width: clamp(375px, 100%, 1170px);
   margin: 0 auto;
-}
+} */
 .button {
   padding: 16px 30px;
   background: var(--radial-gradient-main-color);

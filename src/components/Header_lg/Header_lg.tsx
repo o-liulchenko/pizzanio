@@ -4,7 +4,7 @@ import logo from "../../assets/img/logo.svg";
 import icon_pizza from "../../assets/img/icon_pizza.svg";
 import icon_lang from "../../assets/img/icon_language.svg";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../routes/paths";
+import { ROUTES } from "../../app/routes/paths";
 
 const Header_lg: FC = () => {
   let [langChangerHidden, setLangChangerHidden] = useState(true);

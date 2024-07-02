@@ -1,9 +1,10 @@
 import { FC, useEffect, useState } from "react";
-import styles from "./HomePage.module.css";
-import { getAllPizzas } from "../../api/pizzaAPI";
+import { getAllPizzas } from "../../app/api/pizzaAPI";
 import { PizzaDiscountCard } from "../../components";
+import styles from "./HomePage.module.css";
+import arrow from "../../assets/img/arrow.svg";
 
-interface IData {
+interface IPizza {
   _id: string;
   description: string;
   discount: number;
@@ -12,14 +13,14 @@ interface IData {
   price: number;
 }
 
-export const HomePage: FC = () => {
-  let [sales, setSales] = useState<IData[]>([]);
-  let [isloading, setIsloading] = useState(true);
+const HomePage: FC = () => {
+  let [sales, setSales] = useState<IPizza[]>([]);
+  let [currentPizza, setCurrentPizza] = useState<IPizza | null>(null);
 
   useEffect(() => {
     getAllPizzas().then((data) => {
       setSales(data);
-      setIsloading(false);
+      setCurrentPizza(data[0]);
     });
   }, []);
 
@@ -31,15 +32,16 @@ export const HomePage: FC = () => {
           <h2 className={styles.descriptionSubitle}>Special</h2>
         </article>
         <article>
-          {isloading ? (
+          {!currentPizza ? (
             <span>loading</span>
           ) : (
-            sales.map((e) => (
-              <PizzaDiscountCard props={e} />
-            ))
+            <PizzaDiscountCard pizza={currentPizza} />
           )}
+          
         </article>
       </section>
     </>
   );
 };
+
+export default HomePage;

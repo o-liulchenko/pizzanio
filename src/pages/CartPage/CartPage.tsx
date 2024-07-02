@@ -1,9 +1,11 @@
 import { FC } from "react";
 
-export const CartPage:FC = () => {
+const CartPage:FC = () => {
   return (
     <>
       <h1>CartPage</h1>
     </>
   );
 };
+
+export default CartPage

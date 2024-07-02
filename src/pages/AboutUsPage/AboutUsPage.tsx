@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-export const AboutUsPage:FC = () => {
+const AboutUsPage:FC = () => {
   return (
     <>
       <h1>About Us Page</h1>
@@ -109,3 +109,5 @@ export const AboutUsPage:FC = () => {
     </>
   );
 };
+
+export default AboutUsPage

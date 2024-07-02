@@ -1,4 +1,4 @@
-.container {
+/* /* .container {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -32,7 +32,10 @@
   left: -52px;
   padding: 35px 0;
   border: 1px solid var(--submain-color);
+  border-radius: 50%;
   letter-spacing: 0.05em;
   text-align: center;
   font-size: 48px;
-}
+  color: var(--submain-color);
+  font-family: var(--cursive-font);
+} */

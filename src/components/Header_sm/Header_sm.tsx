@@ -4,7 +4,7 @@ import logo from "../../assets/img/logo.svg";
 import iconBurgerFull from "../../assets/img/menu_hamburger_full.svg";
 import iconBurgerMin from "../../assets/img/menu_hamburger_min.svg";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../routes/paths";
+import { ROUTES } from "../../app/routes/paths";
 
 const Header_sm: FC = () => {
   let [burgerMenuShow, setBurgerMenuShow] = useState(false);

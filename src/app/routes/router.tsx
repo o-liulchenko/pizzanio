@@ -1,12 +1,8 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { ROUTES } from "./paths";
-import { MainLayout } from "../layouts/MainLayout/MainLayout";
-import { HomePage } from "../pages/HomePage/HomePage";
-import { MenuPage } from "../pages/MenuPage/MenuPage";
-import { AboutUsPage } from "../pages/AboutUsPage/AboutUsPage";
-import { CartPage } from "../pages/CartPage/CartPage";
 import { FC } from "react";
-import { ErrorPage } from "../pages/ErrorPage/ErrorPage";
+import { MainLayout } from "../../layouts";
+import { AboutUsPage, CartPage, ErrorPage, HomePage, MenuPage } from "../../pages";
 
 const Routes: FC = () => {
   const router = createBrowserRouter([

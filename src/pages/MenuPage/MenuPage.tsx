@@ -1,7 +1,7 @@
 import axios from "axios";
 import { FC, useEffect, useState } from "react";
 
-export const MenuPage: FC = () => {
+const MenuPage: FC = () => {
   let [sales, setSales] = useState([]);
 
   useEffect(() => {
@@ -19,3 +19,5 @@ export const MenuPage: FC = () => {
     </>
   );
 };
+
+export default MenuPage

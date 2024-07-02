@@ -2,7 +2,7 @@ import { FC } from "react";
 import styles from "./Footer.module.css";
 import logo from "../../assets/img/logo.svg";
 import { Link } from "react-router-dom";
-import { ROUTES } from "../../routes/paths";
+import { ROUTES } from "../../app/routes/paths";
 
 const Footer: FC = () => {
   return (
