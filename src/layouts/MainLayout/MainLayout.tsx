@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useEffect, useRef } from "react";
 import { Outlet } from "react-router-dom";
 import { useWindowSize } from "../../hooks";
 import { Footer, Header_lg, Header_sm } from "../../components";
@@ -7,9 +7,10 @@ const MainLayout: FC = () => {
   let [width] = useWindowSize();
 
   return (
-    <div className="min-h-[100dvh] grid grid-rows-[auto 1fr auto]">
+    <div className="min-h-[100dvh] grid grid-rows-layout font-body bg-slate-50 text-slate-800">
       {width <= 768 ? <Header_sm /> : <Header_lg />}
-      <main className="max-xl:container">
+
+      <main className="container">
         <Outlet />
       </main>
       <Footer />
@@ -17,4 +18,4 @@ const MainLayout: FC = () => {
   );
 };
 
-export default MainLayout
+export default MainLayout;

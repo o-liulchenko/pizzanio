@@ -1,53 +1,66 @@
 import { FC, useState } from "react";
-import styles from "./Header_lg.module.css";
 import logo from "../../assets/img/logo.svg";
-import icon_pizza from "../../assets/img/icon_pizza.svg";
-import icon_lang from "../../assets/img/icon_language.svg";
-import { Link } from "react-router-dom";
 import { ROUTES } from "../../app/routes/paths";
+import { useAppDispatch, useAppSelector } from "../../app/store/hooks";
+import { SelectTotalPrice } from "../../app/store/slices/cartSlice";
+import {
+  changeLanguage,
+  LANG_LIST,
+  SelectLang,
+} from "../../app/store/slices/langSlice";
+import { Dropdown, Underlined } from "../ui";
+import { Link } from "react-router-dom";
 
 const Header_lg: FC = () => {
-  let [langChangerHidden, setLangChangerHidden] = useState(true);
+  const dispatch = useAppDispatch();
+
+  const totalCartPrice = useAppSelector(SelectTotalPrice);
+  const currentLanguage = useAppSelector(SelectLang);
+  const availableLanguages = Object.entries(LANG_LIST).filter(
+    ([key]) => key !== currentLanguage
+  );
+
+  const changeLanguageHandler = (newLanguage: string) => {
+    console.log(newLanguage);
+    dispatch(changeLanguage(newLanguage));
+  };
 
   return (
-    <header className={styles.header}>
-      <div
-        className={`container ${styles.header_container} ${styles.header_lg}`}
-      >
-        <div className={styles.logo}>
+    <header className="container-full bg-white rounded-b-3xl drop-shadow-xl">
+      <div className="container flex items-center justify-between py-6 text-xl font-bold">
+        <div className="flex items-center gap-4">
           <img src={logo} alt="logo" />
-          <span className={styles.logo_font}>Pizanio</span>
+          <Underlined>Pizanio</Underlined>
         </div>
-        <Link className={styles.nav_button} to={ROUTES.main}>
-          Головна
-        </Link>
-        <Link className={styles.nav_button} to={ROUTES.menu}>
-          Меню
-        </Link>
-        <Link className={styles.nav_button} to={ROUTES.cart}>
-          Замовлення
-        </Link>
-        <Link className={styles.nav_button} to={ROUTES.about_us}>
-          Про нас
-        </Link>
-        <div className={styles.header_side_icons}>
-          <button
-            onClick={() => {
-              setLangChangerHidden(!langChangerHidden);
-            }}
-          >
-            <img src={icon_lang} alt="icon_lang" />
-          </button>
-          <img src={icon_pizza} alt="icon_pizza" />
-          <div
-            className={`${styles.lang_change_dropdown} ${
-              langChangerHidden ? styles.hidden : ""
-            }`}
-          >
-            <button className={styles.lang_change_button}>Українська</button>
-            <div className={styles.lang_change_borderline}></div>
-            <button className={styles.lang_change_button}>English</button>
-          </div>
+        <Underlined>
+          <Link to={ROUTES.main}>Головна</Link>
+        </Underlined>
+        <Underlined>
+          <Link to={ROUTES.menu}>Меню</Link>
+        </Underlined>
+        <Underlined>
+          <Link to={ROUTES.about_us}>Про нас</Link>
+        </Underlined>
+        <div className="flex items-center gap-4">
+          <Underlined>
+            <a href="tel:+380xxxxxxxxx">+380xxxxxxxxx</a>
+          </Underlined>
+          <Underlined>
+            <Dropdown>
+              <span>{currentLanguage}</span>
+              {availableLanguages.map((lang) => (
+                <button
+                  key={lang[1]}
+                  onClick={() => changeLanguageHandler(lang[1])}
+                >
+                  {lang[1]}
+                </button>
+              ))}
+            </Dropdown>
+          </Underlined>
+          <Underlined>
+            <Link to={ROUTES.cart}>Сума: {totalCartPrice} грн. 🛒</Link>
+          </Underlined>
         </div>
       </div>
     </header>

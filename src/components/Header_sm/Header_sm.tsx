@@ -1,5 +1,4 @@
 import { FC, useState } from "react";
-import styles from "./Header_sm.module.css";
 import logo from "../../assets/img/logo.svg";
 import iconBurgerFull from "../../assets/img/menu_hamburger_full.svg";
 import iconBurgerMin from "../../assets/img/menu_hamburger_min.svg";
@@ -11,12 +10,10 @@ const Header_sm: FC = () => {
 
   return (
     <div style={{ position: "relative" }}>
-      <header className={styles.header}>
-        <div
-          className={`container ${styles.headerContainer} ${styles.headerSM}`}
-        >
+      <header>
+        <div>
           <img src={logo} alt="logo" />
-          <span className={styles.logoText}>Pizzanio</span>
+          <span>Pizzanio</span>
           <button onClick={() => setBurgerMenuShow(!burgerMenuShow)}>
             <img
               src={burgerMenuShow ? iconBurgerMin : iconBurgerFull}
@@ -25,20 +22,18 @@ const Header_sm: FC = () => {
           </button>
         </div>
       </header>
-      <nav
-        className={`${styles.navigation} ${!burgerMenuShow && styles.hidden}`}
-      >
+      <nav>
         <ul>
-          <li className={styles.navButton}>
+          <li>
             <Link to={ROUTES.menu}>Меню</Link>
           </li>
-          <li className={styles.navButton}>
+          <li>
             <Link to={ROUTES.main}>Головна</Link>
           </li>
-          <li className={styles.navButton}>
+          <li>
             <Link to={ROUTES.cart}>Замовлення</Link>
           </li>
-          <li className={styles.navButton}>
+          <li>
             <Link to={ROUTES.about_us}>Про нас</Link>
           </li>
         </ul>
