@@ -1,5 +1,5 @@
 export const ROUTES = {
-    main: '/',
+    main: '/pizzanio',
     menu: '/menu',
     cart: '/cart',
     about_us: '/about-us'
