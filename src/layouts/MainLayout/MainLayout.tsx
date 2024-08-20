@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from "react";
+import { FC } from "react";
 import { Outlet } from "react-router-dom";
 import { useWindowSize } from "../../hooks";
 import { Footer, Header_lg, Header_sm } from "../../components";

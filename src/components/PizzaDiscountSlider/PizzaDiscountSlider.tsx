@@ -13,7 +13,7 @@ const PizzaDiscountSlider: FC<IDiscountPizzaSliderProps> = () => {
       {data && !isLoading ? (
         <Slider>
           {data.map((pizza) => (
-            <div className="w-full flex flex-none gap-6">
+            <div key={pizza._id} className="w-full flex flex-none gap-6">
               <div>
                 <img
                   className="max-w-[250px]"

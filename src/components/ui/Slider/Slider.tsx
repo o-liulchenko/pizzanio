@@ -8,9 +8,7 @@ const Slider: FC<ISliderProps> = ({ children }) => {
   let [currentSlide, setCurrentSlide] = useState(0);
 
   const prev = () => {
-    currentSlide === 0
-      ? setCurrentSlide(children.length - 1)
-      : setCurrentSlide(currentSlide - 1);
+      setCurrentSlide((currentSlide) => currentSlide === 0 ? children.length - 1 : --currentSlide)
   };
 
   const next = () => {
@@ -31,6 +29,7 @@ const Slider: FC<ISliderProps> = ({ children }) => {
       >
         {children}
       </div>
+      <button onClick={() => prev()}>prev</button>
       <button onClick={() => next()}>next</button>
     </div>
   );

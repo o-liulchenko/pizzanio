@@ -3,7 +3,7 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 import { RootState } from "..";
 
 interface LangState {
-  lang: string;
+  currentLanguage: string;
 }
 
 export const LANG_LIST = {
@@ -12,24 +12,24 @@ export const LANG_LIST = {
   pl: "pl",
 };
 
-// const getInitState: () => LangState = () => {
-//   const maybeLang = localStorage.getItem("lang");
-//   !maybeLang && localStorage.setItem("lang", LANG_LIST.UA)
-//   return localStorage.getItem("lang")
-// };
+const getInitState: () => LangState = () => {
+  const maybeLang = localStorage.getItem("lang");
+  !maybeLang && localStorage.setItem("lang", LANG_LIST.ua)
+  return {currentLanguage: `${localStorage.getItem("lang")}`}
+};
 
 export const LangSlice = createSlice({
   name: "lang",
-  initialState: LANG_LIST.ua,
+  initialState: getInitState(),
   reducers: {
     changeLanguage: (state, action: PayloadAction<string>) => {
-        return state = action.payload
+        state.currentLanguage = action.payload
     }
   },
 });
 
 export const { changeLanguage } = LangSlice.actions;
 
-export const SelectLang = (state: RootState) => state.lang;
+export const SelectLang = (state: RootState) => state.lang.currentLanguage;
 
 export default LangSlice.reducer;

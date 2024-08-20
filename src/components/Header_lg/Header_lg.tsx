@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import logo from "../../assets/img/logo.svg";
 import { ROUTES } from "../../app/routes/paths";
 import { useAppDispatch, useAppSelector } from "../../app/store/hooks";

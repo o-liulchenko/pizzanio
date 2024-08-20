@@ -16,7 +16,7 @@ export const cartApi = createApi({
       query: () => `api/cart`,
     }),
     getCartById: builder.query<ICart, string>({
-        query: (id) => `api/cart`
+        query: (id) => `api/cart/${id}`
     })
   }),
 });
